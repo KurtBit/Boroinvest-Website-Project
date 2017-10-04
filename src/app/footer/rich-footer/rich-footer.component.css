@@ -25,3 +25,7 @@
 .sunny {
     align-self: flex-start;
 }
+
+.partners-list li > a > img {
+    height: 75px;
+}

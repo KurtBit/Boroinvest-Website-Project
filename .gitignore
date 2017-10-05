@@ -44,5 +44,5 @@ yarn-error.log
 Thumbs.db
 
 # Images
-*.png
-*.jpg
+#*.png
+#*.jpg

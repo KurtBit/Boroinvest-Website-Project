@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "node server.js",
     "build": "ng build",
-    "postinstall": "ng build --target=production -e ${NODE_ENV:-production} --aot"
+    "postinstall": "ng build"
   },
   "private": true,
   "dependencies": {

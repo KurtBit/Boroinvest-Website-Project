@@ -7,7 +7,8 @@ import { ContactUsComponent } from './form/contact-us/contact-us.component';
 import { OfferComponent } from './our-offer/offer/offer.component';
 import { GalleryComponent } from './gallery/gallery/gallery.component';
 
-// import { KurtbitFrontAngularModule } from 'kurtbit-front-angular';
+import { KurtbitFrontAngularModule } from 'kurtbit-front-angular';
+import { CarouselComponent } from './carousel/carousel.component';
 
 
 @NgModule({
@@ -16,11 +17,12 @@ import { GalleryComponent } from './gallery/gallery/gallery.component';
     RichFooterComponent,
     ContactUsComponent,
     OfferComponent,
-    GalleryComponent
+    GalleryComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
-    // KurtbitFrontAngularModule
+    KurtbitFrontAngularModule
   ],
   providers: [],
   bootstrap: [AppComponent]

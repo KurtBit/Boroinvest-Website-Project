@@ -6,7 +6,7 @@ import { RichFooterComponent } from './footer/rich-footer/rich-footer.component'
 import { ContactUsComponent } from './form/contact-us/contact-us.component';
 import { OfferComponent } from './our-offer/offer/offer.component';
 
-// import { KurtbitFrontAngularModule } from 'kurtbit-front-angular';
+import { KurtbitFrontAngularModule } from 'kurtbit-front-angular';
 
 
 @NgModule({
@@ -18,7 +18,7 @@ import { OfferComponent } from './our-offer/offer/offer.component';
   ],
   imports: [
     BrowserModule,
-    // KurtbitFrontAngularModule
+    KurtbitFrontAngularModule
   ],
   providers: [],
   bootstrap: [AppComponent]

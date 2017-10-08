@@ -7,19 +7,43 @@
 
 .contact-us-well {
     border: none;
-    background-color: #98CDF9;
+    background-color: #084672;
+    margin-bottom: 4%;
+}
+
+.contact-us-well legend {
+    border: none;
 }
 
 .contact-us-form,
 .contact-us-form legend {
-    color: #d9d9d9;
+    color: #fff;
 }
 
 .contact-us-form {
-    background-color: #0780E4;
+    background-color: #00adbd;
 }
 
 .center-input-position {
     width: 90%;
     margin: 0 auto;
 }
+
+.btn-form-submit {
+    color: #fff;
+    background-color: #FE8D03;
+}
+
+.btn-form-submit:hover {
+    color: #fff;
+    background-color: #DA7A0C;
+}
+
+
+/* color: #fff;
+background-color: #286090;
+border-color: #204d74; */
+
+/* Primary color - 084672
+Secondary - 00adbd
+Complementary - FE8D03 */

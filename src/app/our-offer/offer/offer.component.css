@@ -1,5 +1,5 @@
 .offer-wrapper {
-    height: 90vh;
+    height: 80vh;
     margin-bottom: 20px;
     margin-top: 20px;
     background-color: #98CDF9;
@@ -72,6 +72,8 @@ hr {
 
 .offer-img-container img {
     height: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 /* 

@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
     template: `
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                <div class="item-container" *ngFor="let img of images">
+                <div class="item-container" *ngFor="let img of carouselItems">
                     <div class="item" *ngIf="img.isActive">
                         <img [src]="img.src" alt="Los Angeles">
                     </div>
@@ -31,25 +31,25 @@ import { Component, Input } from '@angular/core';
     ]
 })
 export class CarouselComponent {
-    @Input() images : { src: string, isActive: boolean }[];
+    @Input() carouselItems : { src: string, isActive: boolean }[];
 
     public handleLeftClick($event) {
-        let index =  this.images.findIndex((x) => x.isActive === true);
+        let index =  this.carouselItems.findIndex((x) => x.isActive);
         let prevIndex = (index - 1);
 
         if(prevIndex < 0) {
-            prevIndex += this.images.length;
+            prevIndex += this.carouselItems.length;
         }
 
-        this.images[index].isActive = false;
-        this.images[prevIndex].isActive = true;
+        this.carouselItems[index].isActive = false;
+        this.carouselItems[prevIndex].isActive = true;
     }
 
     public handleRightClick($event) {
-        let index =  this.images.findIndex((x) => x.isActive === true);
-        let nextIndex = (index + 1) % this.images.length;
+        let index =  this.carouselItems.findIndex((x) => x.isActive);
+        let nextIndex = (index + 1) % this.carouselItems.length;
 
-        this.images[index].isActive = false;
-        this.images[nextIndex].isActive = true;
+        this.carouselItems[index].isActive = false;
+        this.carouselItems[nextIndex].isActive = true;
     }
 }

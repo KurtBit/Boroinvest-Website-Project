@@ -19,8 +19,7 @@
   cursor: pointer;
 }
 
-.gallery:hover>div:last-child,
-.gallery:active>div:last-child {
+.active {
   width: 0;
   height: 0;
   border-left: 30px solid transparent;

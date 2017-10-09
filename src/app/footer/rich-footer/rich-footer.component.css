@@ -1,35 +1,44 @@
 .footer {
     flex-shrink: 0;
     padding: 10px;
-    background: #42A5F5;
-    color: white;
+    background: #084672;
+    color: #d9d9d9;
 }
 
-.map iframe,
-.partners {
-    max-height: 200px;
+.map {
+    display: inline-block;
+    margin-top: 4%;
+    width: 100%;
 }
 
 .map iframe {
+    max-height: 200px;
     width: 100%;
 }
 
 .partners-list {
     display: flex;
     list-style: none;
-    align-items: center;
-    height: 200px;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 250px;
     justify-content: space-around;
 }
 
-.fiesta {
-    align-self: flex-end;
+.partners-list img {
+    background-color: #00adbd;
 }
 
-.sunny {
-    align-self: flex-start;
+.partners-list li:hover img,
+.partners-list li:active img {
+    opacity: 0.5;
 }
 
-.partners-list li > a > img {
-    height: 100px;
+.contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    min-height: 239px;
+    text-align: center;
 }

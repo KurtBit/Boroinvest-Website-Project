@@ -1,0 +1,63 @@
+---
+swagger: "2.0"
+info:
+  description: "This is a sample server.  You can find out more about     Swagger\
+    \ at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).\
+    \      For this sample, you can use the api key `special-key` to test the authorization\
+    \     filters."
+  version: "1.0.0"
+  title: "Boroinvest API"
+host: "127.0.0.1:8080"
+basePath: "/api/v1/"
+tags:
+- name: "Authentication"
+schemes:
+- "http"
+paths:
+  /authentication/login:
+    get:
+      tags:
+      - "Authentication"
+      operationId: "login"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "username"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Returns a valid JWT Token. Main entry point for the authentication\
+            \ process"
+          schema:
+            $ref: "#/definitions/JwtToken"
+        405:
+          description: "Invalid input"
+      x-swagger-router-controller: "Authentication"
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "authentication"
+    in: "header"
+definitions:
+  JwtToken:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        x-faker: "String('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJCb3JvSW52ZXN0IiwiaWF0IjoxNTA3NzUxMDQxLCJleHAiOjE1MzkyODcyNzMsImF1ZCI6Ind3dy5ib3JvaW52ZXN0LmNvbSIsInN1YiI6Iml2YW5pdmFub3ZAZ21haWwuY29tIn0.0tpFtAu91pLbscQNqkwilgFcFB2OBwAFgR6MnEEfFG0')"
+      token_type:
+        type: "string"
+        x-faker: "String('bearer')"
+      expires_at:
+        type: "string"
+        x-faker: "String('1539287041')"

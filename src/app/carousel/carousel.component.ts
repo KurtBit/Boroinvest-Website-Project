@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'Carousel',
@@ -6,8 +6,8 @@ import { Component, Input, ViewChild } from '@angular/core';
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="item-container" *ngFor="let img of carouselItems">
-                    <div class="item" *ngIf="img.isActive">
-                        <img #image [src]="img.src" alt="Los Angeles">
+                    <div #imgWrapper class="item" *ngIf="img.isActive">
+                        <img #image class="carousel-image" [src]="img.src" alt="Los Angeles">
                     </div>
                 </div>
             </div>
@@ -33,7 +33,8 @@ import { Component, Input, ViewChild } from '@angular/core';
     ]
 })
 export class CarouselComponent {
-    @ViewChild('image') currentImage;
+    @ViewChild('image') currentImage: ElementRef;
+    @ViewChild('imgWrapper') imgWrapper: ElementRef;
 
     @Input() carouselItems : { src: string, isActive: boolean }[];
 
@@ -47,14 +48,19 @@ export class CarouselComponent {
 
         this.currentImage.nativeElement.style = 'left: 0';
         
+        this.imgWrapper.nativeElement.insertAdjacentHTML(
+            'afterbegin', (
+                '<img id="appended" style="width:100%; position: absolute; " src="' + 
+                    this.carouselItems[prevIndex].src +'">'));
+
         setTimeout(() => {
             this.currentImage.nativeElement.style = 'left: 100%';
-        }, 100);
+        }, 0);
 
         setTimeout(() => {
             this.carouselItems[index].isActive = false;
             this.carouselItems[prevIndex].isActive = true;
-        }, 1500);
+        }, 2000);
         
     }
 
@@ -64,14 +70,19 @@ export class CarouselComponent {
 
         this.currentImage.nativeElement.style = 'right: 0';
         
+        this.imgWrapper.nativeElement.insertAdjacentHTML(
+            'afterbegin', (
+                '<img id="appended" style="width:100%; position: absolute; " src="' + 
+                    this.carouselItems[nextIndex].src +'">'));
+
         setTimeout(() => {
             this.currentImage.nativeElement.style = 'right: 100%';
-        }, 100);
+        }, 0);
 
         setTimeout(() => {
             this.carouselItems[index].isActive = false;
             this.carouselItems[nextIndex].isActive = true;
-        }, 1000);
+        }, 2000);
         
     }
 }

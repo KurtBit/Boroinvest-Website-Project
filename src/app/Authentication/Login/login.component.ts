@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from '../Services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'auth-login',
@@ -35,9 +36,10 @@ import { AuthenticationService } from '../Services/authentication.service';
         </div>
     `
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
     constructor(
-        private authenticationService: AuthenticationService
+        private authenticationService: AuthenticationService,
+        private router: Router
     ) { }
 
     public model: {
@@ -48,7 +50,15 @@ export class LoginComponent {
         password: ''
     }
 
-    public onSubmit() {       
-        this.authenticationService.login(this.model.username, this.model.password);
+    ngOnInit(): void {
+        if(this.authenticationService.isAuthenticated()){
+            this.router.navigateByUrl('');
+        }
+    }
+
+    public onSubmit() {
+        if (this.authenticationService.login(this.model.username, this.model.password)) {
+            this.router.navigateByUrl('');
+        }
     }
 }

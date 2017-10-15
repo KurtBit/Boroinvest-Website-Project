@@ -4,7 +4,7 @@ import { OfferModel } from './offer.model';
 @Component({
     selector: 'admin-offer',
     template: `
-        <h2>Add Offer</h2>
+        <h2 style="margin-top: 100px;">Add Offer</h2>
         <hr>
         <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
             <div class="form-group">

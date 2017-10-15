@@ -46,7 +46,7 @@ export class LoginComponent {
         password: ''
     }
 
-    public onSubmit() {
+    public onSubmit() {       
         this.authenticationService.login(this.model.username, this.model.password);
     }
 }

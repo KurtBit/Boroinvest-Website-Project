@@ -24,6 +24,6 @@ export class AuthenticationService {
     }
 
     public isAuthenticated(): boolean {
-        return this.sessionService.load() !== "";
+        return Boolean(this.sessionService.load());
     }
 }

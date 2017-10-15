@@ -7,6 +7,7 @@ import { LoginComponent } from './Login/login.component';
 import { LogoutComponent } from './Logout/logout.component';
 import { AuthenticationService } from './Services/authentication.service';
 import { SessionService } from './Services/session.service';
+import { AuthGuard } from './Guards/auth.guard';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { SessionService } from './Services/session.service';
     ],
     providers: [
         AuthenticationService,
-        SessionService
+        SessionService,
+        AuthGuard
     ]
 })
 export class AuthenticationModule { }

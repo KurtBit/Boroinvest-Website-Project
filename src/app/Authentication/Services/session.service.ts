@@ -5,14 +5,14 @@ export class SessionService {
     private readonly TOKEN_KEY: string = 'token';
 
     public save(token: string): void {
-        sessionStorage.setItem(this.TOKEN_KEY, token);
+        localStorage.setItem(this.TOKEN_KEY, token);
     }
 
     public load(): string {
-        return sessionStorage.getItem(this.TOKEN_KEY);
+        return localStorage.getItem(this.TOKEN_KEY);
     }
 
     public delete(): void {
-        sessionStorage.removeItem(this.TOKEN_KEY);
+        localStorage.removeItem(this.TOKEN_KEY);
     }
 }

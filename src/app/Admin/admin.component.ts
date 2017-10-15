@@ -9,6 +9,5 @@ export class AdminComponent{
 
 
     openSubmenu() {
-        alert("I was clicked!");
     }
 }

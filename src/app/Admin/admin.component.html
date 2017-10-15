@@ -1,7 +1,7 @@
 <div class="navbar navbar-blue navbar-fixed-top">
   <!-- navbar-static-top -->
   <div class="navbar-header">
-    <a class="navbar-brand brand-center">Boroinvest</a>
+    <a routerLink="/" class="navbar-brand brand-center">Boroinvest</a>
   </div>
   <ul class="nav navbar-right navbar-nav nav-right">
     <li>
@@ -16,11 +16,11 @@
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
           <li>
-            <a href="#" data-toggle="collapse" data-target="#submenu-1" (click)="openSubmenu()">
+            <a routerLink="/admin/offer" class="collapsed" aria-expanded="false" (click)="openSubmenu()">
               <i class="fa fa-fw fa-search"></i> Оферти
               <i class="fa fa-fw fa-angle-down pull-right"></i>
             </a>
-            <ul id="submenu-1" class="collapse">
+            <ul id="submenu-1" class="collapse" aria-expanded="false">
               <li>
                 <a href="#">
                   <i class="fa fa-angle-double-right"></i> Добави Оферта</a>

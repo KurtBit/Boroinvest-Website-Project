@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -8,7 +9,14 @@ import { GalleryComponent } from './gallery/gallery.component';
 
 import { KurtbitFrontAngularModule } from 'kurtbit-front-angular';
 import { CarouselComponent } from './carousel/carousel.component';
+import { HomeComponent } from './Home/home.component';
+import { LoginComponent } from './Authentication/Login/login.component';
+import { AuthenticationModule } from './Authentication/authentication.module';
+import { AdminModule } from './Admin/admin.module';
 
+const homeRoutes: Routes = [
+  { path: '', component: HomeComponent, pathMatch: 'full' }
+];
 
 @NgModule({
   declarations: [
@@ -16,11 +24,15 @@ import { CarouselComponent } from './carousel/carousel.component';
     RichFooterComponent,
     ContactUsComponent,
     GalleryComponent,
-    CarouselComponent
+    CarouselComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    KurtbitFrontAngularModule
+    RouterModule.forRoot(homeRoutes),
+    KurtbitFrontAngularModule,
+    AuthenticationModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

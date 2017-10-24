@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node index.js",
+    "start-dev": "start ng build --watch && start node index.js",
     "build": "ng build",
     "postinstall": "ng build"
   },

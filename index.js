@@ -1,8 +1,9 @@
-const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
-const api = require('./server/routes/api');
 const http = require('http');
+const path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+const db = require('./server/database/init');
+const api = require('./server/routes/api');
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/dist'));
 
 // Set our api routes
-app.use('/api', api);
+app.use('/api/v1', api(db.users, db.offers));
 
 // Catch all other routes and return the index file
 app.get('/*', (req, res) => {

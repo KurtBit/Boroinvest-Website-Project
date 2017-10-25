@@ -1,9 +1,24 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET api listing. */
-router.get('/', (req, res) => {
-  res.send('api works');
-});
+module.exports = (Users, Offers) => {
 
-module.exports = router;
+  router.get('/user', (req, res) => {
+    // return Users.create({
+    //   username: "elitsa",
+    //   password: "123",
+    //   created_at: new Date()
+    // }, (err, user) => {
+    //   if (err) return console.log('Unable to create user!');
+
+    //   res.send(user);
+    // });
+  });
+
+  /* GET api listing. */
+  router.get('/', (req, res, unitOfWork) => {
+    res.send('api works');
+  });
+
+  return router;
+};

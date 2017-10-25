@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AdminRouting } from './admin.routing';
 import { OfferComponent } from './Offer/offer.component';
 import { AdminComponent } from './admin.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { AdminComponent } from './admin.component';
     imports: [
         CommonModule,
         AdminRouting,
-        FormsModule
+        FormsModule,
+        HttpClientModule
     ],
     providers: [
 

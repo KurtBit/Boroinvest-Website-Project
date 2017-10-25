@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OfferModel } from './offer.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'admin-offer',
@@ -47,9 +48,17 @@ import { OfferModel } from './offer.model';
     `
 })
 export class OfferComponent {
+    constructor(
+        private http: HttpClient
+    ){}
+
     public model: OfferModel = new OfferModel('', '', new Date(), '', 0, '');
 
     public onSubmit() {
+        this.http
+            .post('/api/v1/offer', this.model)
+            .subscribe();
+
         console.log(this.model);
     }
 }

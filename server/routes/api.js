@@ -3,16 +3,21 @@ const router = express.Router();
 
 module.exports = (Users, Offers) => {
 
-  router.get('/user', (req, res) => {
-    // return Users.create({
-    //   username: "elitsa",
-    //   password: "123",
-    //   created_at: new Date()
-    // }, (err, user) => {
-    //   if (err) return console.log('Unable to create user!');
+  router.post('/offer', (req, res) => {
 
-    //   res.send(user);
-    // });
+    let offer = req.body;
+    // if (!offer) {
+    //   res.status(400);
+    //   return res.send();
+    // }
+
+    return Offers.create(offer,
+      (err, user) => {
+        if (err) return console.log('Unable to create user!');
+
+        res.status(201);
+        res.send(user);
+      });
   });
 
   /* GET api listing. */

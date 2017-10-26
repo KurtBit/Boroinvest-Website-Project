@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AdminRouting } from './admin.routing';
 import { OfferComponent } from './Offer/offer.component';
+import { UserComponent } from './User/user.component';
 import { AdminComponent } from './admin.component';
 import {HttpClientModule} from '@angular/common/http';
 import { SidebarItemsComponent } from './Sidebar/sidebar-items.component';
@@ -12,6 +13,7 @@ import { SidebarItemComponent } from './Sidebar/sidebar-item/sidebar-item.compon
     declarations: [
         AdminComponent,
         OfferComponent,
+        UserComponent,
         SidebarItemsComponent,
         SidebarItemComponent
     ],

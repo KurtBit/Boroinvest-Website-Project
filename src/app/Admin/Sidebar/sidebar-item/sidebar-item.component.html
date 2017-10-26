@@ -1,0 +1,27 @@
+<li>
+  <a routerLink={{sidebarItem.url}} (click)="toggleSideMenu()">
+    <i class="fa fa-fw {{sidebarItem.icon}}"></i> {{sidebarItem.name}}
+    <i class="fa fa-fw fa-angle-down pull-right"></i>
+  </a>
+  <ul #offerMenu id="submenu-1" class="collapse" aria-expanded="false">
+    <li>
+      <a routerLink="/admin/offer-add">
+        <i class="fa fa-angle-double-right"></i> Добави Оферта
+      </a>
+    </li>
+  </ul>
+</li>
+
+
+<!-- <li>
+    <a data-toggle="collapse" data-target="#submenu-2">
+      <i class="fa fa-fw "></i> Потребители
+      <i class="fa fa-fw fa-angle-down pull-right"></i>
+    </a>
+    <ul #userMenu id="submenu-2" class="collapse">
+      <li>
+        <a href="#">
+          <i class="fa fa-angle-double-right"></i> Добави потребител</a>
+      </li>
+    </ul>
+  </li> -->

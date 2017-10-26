@@ -5,11 +5,13 @@ import { AdminRouting } from './admin.routing';
 import { OfferComponent } from './Offer/offer.component';
 import { AdminComponent } from './admin.component';
 import {HttpClientModule} from '@angular/common/http';
+import { SidebarItemsComponent } from './Sidebar/sidebar-items.component';
 
 @NgModule({
     declarations: [
         AdminComponent,
-        OfferComponent
+        OfferComponent,
+        SidebarItemsComponent
     ],
     imports: [
         CommonModule,

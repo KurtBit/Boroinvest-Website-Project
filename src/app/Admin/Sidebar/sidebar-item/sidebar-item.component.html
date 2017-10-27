@@ -3,10 +3,11 @@
     <i class="fa fa-fw {{sidebarItem.icon}}"></i> {{sidebarItem.name}}
     <i class="fa fa-fw fa-angle-down pull-right"></i>
   </a>
-  <ul [ngClass]="{'collapse-in': !isCollapsed, 'collapse': isCollapsed}" aria-expanded="false">
+  <ul [ngClass]="{'collapse-in': !isCollapsed, 'collapse': isCollapsed}"
+      *ngFor="let child of sidebarItem.childSidebar">
     <li>
-      <a routerLink="/admin/offer-add">
-        <i class="fa fa-angle-double-right"></i> Добави Оферта
+      <a routerLink={{child.url}}>
+        <i class="fa {{child.icon}}"></i> {{child.name}}
       </a>
     </li>
   </ul>

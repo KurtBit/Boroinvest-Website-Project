@@ -7,11 +7,17 @@ import { SidebarItemModel } from '../sidebar-item.model';
   styleUrls: ['./sidebar-item.component.css']
 })
 export class SidebarItemComponent implements OnInit {
-  @Input('item') sidebarItem: SidebarItemModel
+  @Input('item') sidebarItem: SidebarItemModel;
+
+  isCollapsed: boolean = true;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleSideMenu() {
+    return this.isCollapsed = !this.isCollapsed;
   }
 
 }

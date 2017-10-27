@@ -17,7 +17,8 @@ export class SidebarItemComponent implements OnInit {
   }
 
   toggleSideMenu() {
-    return this.isCollapsed = !this.isCollapsed;
+    this.isCollapsed = !this.isCollapsed
+    
+    return this.isCollapsed;
   }
-
 }

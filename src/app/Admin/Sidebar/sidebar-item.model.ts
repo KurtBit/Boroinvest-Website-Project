@@ -4,7 +4,7 @@ export class SidebarItemModel {
         public url: string,
         public icon: string,
         public name: string,
-        public childSidebar: SidebarItemModel[] = null
+        public children: SidebarItemModel[] = null
     ){
     }
 }

@@ -4,7 +4,7 @@
     <i class="fa fa-fw fa-angle-down pull-right"></i>
   </a>
   <ul [ngClass]="{'collapse-in': !isCollapsed, 'collapse': isCollapsed}"
-      *ngFor="let child of sidebarItem.childSidebar">
+      *ngFor="let child of sidebarItem.children">
     <li>
       <a routerLink={{child.url}}>
         <i class="fa {{child.icon}}"></i> {{child.name}}
@@ -12,17 +12,3 @@
     </li>
   </ul>
 </li>
-
-
-<!-- <li>
-    <a data-toggle="collapse" data-target="#submenu-2">
-      <i class="fa fa-fw "></i> Потребители
-      <i class="fa fa-fw fa-angle-down pull-right"></i>
-    </a>
-    <ul #userMenu id="submenu-2" class="collapse">
-      <li>
-        <a href="#">
-          <i class="fa fa-angle-double-right"></i> Добави потребител</a>
-      </li>
-    </ul>
-  </li> -->

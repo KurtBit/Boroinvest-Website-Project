@@ -23,9 +23,9 @@ import { HttpClient } from '@angular/common/http';
             </div>
 
             <div class="form-group">
-                <label for="passwordConfirm">Потвърди Паролата</label>
-                <input type="password" id="passwordConfirm" class="form-control"
-                [(ngModel)]="model.passwordConfirm" name="passwordConfirm" required
+                <label for="password">Потвърди Паролата</label>
+                <input type="password" id="password" class="form-control"
+                [(ngModel)]="model.password" name="password" required
                 />
             </div>
 
@@ -38,7 +38,7 @@ export class UserComponent {
         private http: HttpClient
     ){}
 
-    public model: UserModel = new UserModel('', '', '', new Date(+Date.now));
+    public model: UserModel = new UserModel('', '', new Date());
 
     public onSubmit() {
         this.http

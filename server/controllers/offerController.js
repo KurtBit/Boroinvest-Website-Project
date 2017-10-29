@@ -3,34 +3,60 @@ const router = express.Router();
 
 module.exports = (Offers) => {
     router.post('/', (req, res) => {
-        let offer = req.body;
-
-        return Offers.create(offer,
-            (err, user) => {
-                if (err) return console.log('Unable to create user!');
-
-                res.status(201);
-                res.send(user);
+        return Offers.create(req.body,
+            (err, offer) => {
+                if (err) {
+                    console.log('Unable to create offer!');
+                   
+                    return  res.status(400).send(err);
+                }
+                
+                return res.status(201).send(offer);
             });
     });
 
     router.get('/', (req, res) => {
         Offers.find({}, (err, offers) => {
-            if (err) return console.log('Unable to create offer!');
-
-            res.status(200);
-            res.send(offers);
+          
+            return  res.status(200).send(offers);
         })
     });
 
     router.delete('/:id', (req, res) => {
         return Offers.findByIdAndRemove(req.params.id, (err, offer) => {
-            if (err) console.log('Failed to deleting offer!', offer);
+            if (err) {
+                console.log('Failed to deleting offer!');
 
-            res.status(200);
-            res.send();
+                return res.status(404).send(offer);
+            }
+            
+            return res.status(200).send(offer);
         })
     })
+
+    router.get('/:id', (req, res) => {
+        return Offers.findById(req.params.id, (err, offer) => {
+            if (err) {
+                console.log('Failed to find offer!');
+    
+                return res.status(404).send(err);
+            }
+
+            return  res.status(200).send(offer);
+        })
+    })
+
+    router.put('/:id', (req, res) => {
+        return Offers.findByIdAndUpdate(req.params.id, req.body, (err, offer) => {
+            if(err) {
+                console.log('Failed to find offer!');
+
+                return res.status(204).send(err);
+            }
+
+            return res.status(200).send(offer);
+        })
+    });
 
     return router;
 }

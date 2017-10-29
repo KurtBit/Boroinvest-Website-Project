@@ -2,6 +2,7 @@ export class UserModel {
     constructor(
         public username: string,
         public password: string,
-        public createdAt: Date
+        // TODO(PPavlov): Refactor name!
+        public created_at: Date
     ){}
 }

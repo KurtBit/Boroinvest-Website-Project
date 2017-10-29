@@ -9,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
         <hr>
 
         <table id="mytable" class="table table-bordred table-striped">
-        
             <thead>
                 <th>Име</th>
                 <th>Автор</th>

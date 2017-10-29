@@ -8,6 +8,7 @@ import { AdminComponent } from './admin.component';
 import {HttpClientModule} from '@angular/common/http';
 import { SidebarItemsComponent } from './Sidebar/sidebar-items.component';
 import { SidebarItemComponent } from './Sidebar/sidebar-item/sidebar-item.component';
+import { OfferAddComponent } from './Offer/Add/offer-add.component';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { SidebarItemComponent } from './Sidebar/sidebar-item/sidebar-item.compon
         OfferComponent,
         UserComponent,
         SidebarItemsComponent,
-        SidebarItemComponent
+        SidebarItemComponent,
+        OfferAddComponent
     ],
     imports: [
         CommonModule,

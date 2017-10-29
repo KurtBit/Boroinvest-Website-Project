@@ -1,0 +1,41 @@
+/* Side Navigation */
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 50px;
+        left: 225px;
+        width: 225px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        border-top: 1px rgba(0,0,0,.5) solid;
+        overflow-y: auto;
+        background-color: #084672;
+        /*background-color: #5A6B7D;*/
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+}
+
+.collapse {
+    display: none;
+    visibility: hidden;
+    height: 0px;
+    transition: height 1s;
+}
+
+.collapse-in {
+    height: 1px;
+    display: block;
+    visibility: visible;
+    transition: height 1s ease-out;
+    height: 70px;
+}
+
+
+
+.navbar-brand {
+    padding: 5px 15px;
+}

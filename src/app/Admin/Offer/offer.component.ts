@@ -1,55 +1,47 @@
-import { Component } from '@angular/core';
-import { OfferModel } from './offer.model';
+import { Component, OnInit } from '@angular/core';
+import { OfferModel } from './Model/offer.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'admin-offer',
     template: `
-        <h2 style="margin-top: 100px;">Добави Оферта</h2>
+        <h2 style="margin-top: 100px;">Покажи Оферти</h2>
         <hr>
-        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-            <div class="form-group">
-                <label for="name">Име</label>
-                <input type="text" id="name" class="form-control"
-                    [(ngModel)]="model.name" name="name" required
-                />
-            </div>
 
-            <div class="form-group">
-                <label for="img">Изображение</label>
-                <input type="text" id="img" class="form-control"
-                    [(ngModel)]="model.img" name="img"
-                />
-            </div>
-
-            <div class="form-group">
-                <label for="content">Съдържание</label>
-                <textarea id="content"  class="form-control"
-                    [(ngModel)]="model.content" name="content"
-                ></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="date">Дата</label>
-                <input type="date" id="date" class="form-control"
-                    [(ngModel)]="model.date" name="date" required
-                />
-            </div>
-
-            <div class="form-group">
-                <label for="price">Цена</label>
-                <input type="text" id="price" class="form-control"
-                    [(ngModel)]="model.price" name="price" required
-                />
-            </div>
-
-            <input type="submit" value="Добави" class="btn btn-success">
-        </form>
+        <table id="mytable" class="table table-bordred table-striped">
+            <thead>
+                <th>Име</th>
+                <th>Автор</th>
+                <th>Дата</th>
+                <th>Цена</th>
+                <th>Промени</th>
+                <th>Изтрий</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let offer of Offers">
+                    <td>
+                        <a href="#">{{offer.name}}</a>
+                    </td>
+                    <td>{{offer.author}}</td>
+                    <td>{{offer.date | date }}</td>
+                    <td>{{offer.price}}</td>
+                    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                </tr>
+            </tbody>
+        </table>
     `
 })
-export class OfferComponent {
-    public model: OfferModel = new OfferModel('', '', new Date(), '', 0, '');
+export class OfferComponent implements OnInit {
+    public Offers: OfferModel[];
 
-    public onSubmit() {
-        console.log(this.model);
+    constructor(
+        private http: HttpClient) { }
+
+    ngOnInit(): void {
+        this.http.get('/api/v1/offers')
+            .subscribe((res: OfferModel[]) => {
+                this.Offers = res;
+            });
     }
 }
